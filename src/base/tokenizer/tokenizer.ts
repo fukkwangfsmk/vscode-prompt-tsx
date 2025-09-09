@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { CancellationToken, LanguageModelChatMessage } from 'vscode';
+import type { CancellationToken, LanguageModelChatMessage } from '../standalone-types';
 import { ModeToChatMessageType, OutputMode, Raw } from '../output/mode';
 
 /**

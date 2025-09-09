@@ -1,15 +1,13 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
 		"target": "ES2022",
-		"moduleResolution": "node",
-		"strict": true,
+		"module": "commonjs",
 		"jsx": "react",
 		"jsxFactory": "vscpp",
 		"jsxFragmentFactory": "vscppf",
+		"moduleResolution": "node",
+		"strict": true,
 		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"types": ["node"]
-	},
-	"include": ["*.tsx", "*.ts"]
+		"skipLibCheck": true
+	}
 }

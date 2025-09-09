@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { Range } from 'vscode';
+import type { Range } from './standalone-types';
 import { ChatResponseReferencePartStatusKind } from './results';
 import { UriComponents } from './util/vs/common/uri';
 import { BasePromptElementProps, PromptElementProps } from './types';

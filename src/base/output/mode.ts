@@ -2,11 +2,12 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { LanguageModelChatMessage } from 'vscode';
+import type { LanguageModelChatMessage } from '../standalone-types';
 import { toOpenAiChatMessage, toOpenAIChatMessages } from './openaiConvert';
 import { ChatMessage as OpenAIChatMessage } from './openaiTypes';
 import { ChatMessage as RawChatMessage } from './rawTypes';
 import { toVsCodeChatMessage, toVsCodeChatMessages } from './vscode';
+import { toStandaloneChatMessage, toStandaloneChatMessages } from './standalone';
 
 export * as OpenAI from './openaiTypes';
 export * as Raw from './rawTypes';
@@ -46,7 +47,9 @@ export function toMode<Mode extends keyof ModeToChatMessageType>(
 			return messages as ModeToChatMessageType[Mode][];
 		case OutputMode.VSCode:
 			return (
-				messages instanceof Array ? toVsCodeChatMessages(messages) : toVsCodeChatMessage(messages)
+				messages instanceof Array
+					? toStandaloneChatMessages(messages)
+					: toStandaloneChatMessage(messages)
 			) as ModeToChatMessageType[Mode];
 		case OutputMode.OpenAI:
 			return (

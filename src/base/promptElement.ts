@@ -2,10 +2,10 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { CancellationToken, Progress } from 'vscode';
+import type { CancellationToken, Progress } from './standalone-types';
 import './tsx';
 import { BasePromptElementProps, PromptElementProps, PromptPiece, PromptSizing } from './types';
-import { ChatResponsePart } from './vscodeTypes';
+import { ChatResponsePart } from './standalone-vscode-types';
 
 /**
  * `PromptElement` represents a single element of a prompt.

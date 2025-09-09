@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { CancellationToken, Progress } from 'vscode';
+import type { CancellationToken, Progress } from './standalone-types';
 import * as JSONT from './jsonTypes';
 import { PromptNodeType } from './jsonTypes';
 import {
@@ -49,7 +49,7 @@ import {
 	PromptSizing,
 } from './types';
 import { URI } from './util/vs/common/uri';
-import { ChatDocumentContext, ChatResponsePart } from './vscodeTypes';
+import { ChatDocumentContext, ChatResponsePart } from './standalone-vscode-types';
 
 export interface RenderPromptResult<M extends OutputMode = OutputMode.Raw> {
 	readonly messages: ModeToChatMessageType[M][];

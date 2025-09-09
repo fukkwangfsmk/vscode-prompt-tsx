@@ -5,7 +5,7 @@
 import { PromptElementJSON } from './jsonTypes';
 import { PromptMetadata, PromptReference } from './results';
 import { URI } from './util/vs/common/uri';
-import { ChatDocumentContext } from './vscodeTypes';
+import { ChatDocumentContext } from './standalone-vscode-types';
 
 declare global {
 	namespace JSX {

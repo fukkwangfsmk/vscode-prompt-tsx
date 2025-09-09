@@ -4,29 +4,33 @@
 
 import type {
 	CancellationToken,
-	ChatResponsePart,
 	LanguageModelChat,
 	LanguageModelChatMessage,
 	Progress,
-} from 'vscode';
+} from './standalone-types';
+import type { ChatResponsePart } from './standalone-vscode-types';
 import { PromptElementJSON } from './jsonTypes';
 import { ModeToChatMessageType, OutputMode, Raw } from './output/mode';
 import { ChatMessage } from './output/openaiTypes';
 import { MetadataMap, PromptRenderer } from './promptRenderer';
 import { PromptReference } from './results';
-import { ITokenizer, VSCodeTokenizer } from './tokenizer/tokenizer';
+import { ITokenizer, StandaloneTokenizer, SimpleTokenizer } from './tokenizer/standalone-tokenizer';
 import { BasePromptElementProps, IChatEndpointInfo, PromptElementCtor } from './types';
-import { ChatDocumentContext } from './vscodeTypes.d';
+import { ChatDocumentContext } from './standalone-vscode-types';
 
 export * from './htmlTracer';
 export * as JSONTree from './jsonTypes';
 export * from './output/mode';
 export * from './promptElements';
 export * from './results';
-export { ITokenizer } from './tokenizer/tokenizer';
+export { ITokenizer, StandaloneTokenizer, SimpleTokenizer } from './tokenizer/standalone-tokenizer';
 export * from './tracer';
 export * from './tsx-globals';
+export * from './standalone-types';
 export * from './types';
+
+// Import tsx setup to ensure JSX factory is available
+import './tsx';
 
 export { PromptElement } from './promptElement';
 export { MetadataMap, PromptRenderer, QueueItem, RenderPromptResult } from './promptRenderer';
@@ -103,7 +107,7 @@ export async function renderPrompt<P extends BasePromptElementProps>(
 }> {
 	let tokenizer =
 		'countTokens' in tokenizerMetadata
-			? new VSCodeTokenizer((text, token) => tokenizerMetadata.countTokens(text, token), mode)
+			? new StandaloneTokenizer((text, token) => tokenizerMetadata.countTokens(text, token), mode)
 			: tokenizerMetadata;
 	const renderer = new PromptRenderer(endpoint, ctor, props, tokenizer);
 	const renderResult = await renderer.render(progress, token);

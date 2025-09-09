@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation and GitHub. All rights reserved.
  *--------------------------------------------------------------------------------------------*/
 
-import type { Location, ThemeIcon, Uri } from 'vscode';
+import type { Location, ThemeIcon, Uri } from './standalone-types';
 import * as JSON from './jsonTypes';
 import { URI } from './util/vs/common/uri';
 
